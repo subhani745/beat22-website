@@ -1,0 +1,78 @@
+<div class="beats-container">
+  <div class="beat-card" *ngFor="let beat of beats; let i = index">
+
+    <div class="play-icon" [class.active]="currentPlayingIndex === i && isPlaying" (click)="togglePlay(i)">
+      <i class="material-icons">
+        {{ currentPlayingIndex === i && isPlaying ? 'pause' : 'play_arrow' }}
+      </i>
+    </div>
+    <img [src]="beat.cover_picture" alt="beat cover" class="cover-img" />
+    <div class="beat-info">
+      <h3 class="beat-title">{{ beat.title }}</h3>
+      <p class="producer">{{ beat.producer?.store?.general?.name }}</p>
+      <p class="meta">
+        <i class="material-icons icon">graphic_eq</i> {{ beat.tempo }} BPM •
+        <i class="material-icons icon">music_note</i> {{ beat.key }}
+      </p>
+    </div>
+    <div class="mood-tags">
+      <span class="tag" *ngFor="let mod of beat.mood">{{ mod }}</span>
+    </div>
+    <div class="price-section">
+      <i class="material-icons">shopping_cart</i>
+      <button class="price-button">₹ {{beat.prices[0].final_price }}</button>
+    </div>
+  </div>
+  <audio #audioPlayer (ended)="onEnded()"></audio>
+</div>
+
+<div *ngIf="isLoading" class="loader">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+
+
+
+<div class="footer-player" *ngIf="currentPlayingIndex !== null">
+  <input type="range" class="seek-bar" min="0" [max]="duration" [value]="currentTime" (input)="onSeek($event)" />
+
+  <div class="footer-content">
+    <button class="footer-skip-btn" (click)="playPrevious()">
+      <i class="material-icons">skip_previous</i>
+    </button>
+    <button class="footer-play-btn" (click)="togglePlay(currentPlayingIndex)">
+      <i class="material-icons">{{ isPlaying ? 'pause' : 'play_arrow' }}</i>
+    </button>
+    <button class="footer-skip-btn" (click)="playNext()">
+      <i class="material-icons">skip_next</i>
+    </button>
+    <div class="footer-timer">
+      {{ formatTime(currentTime) }} / {{ formatTime(duration) }}
+    </div>
+    <div class="footer-info">
+      <img [src]="beats[currentPlayingIndex]?.cover_picture" alt="cover" class="footer-img" />
+      <div>
+        <p class="footer-title">{{ beats[currentPlayingIndex]?.title }}</p>
+        <p class="footer-producer">
+          {{ beats[currentPlayingIndex]?.producer?.store?.general?.name }}
+          <span class="bpm"> • {{ beats[currentPlayingIndex]?.bpm }} BPM</span>
+          <span class="plays"> • {{ beats[currentPlayingIndex]?.plays || '1.3k' }}</span>
+        </p>
+      </div>
+    </div>
+    <div class="footer-controls">
+      <i class="material-icons control-icon" (click)="toggleLike(currentPlayingIndex)">
+        {{ isLiked(currentPlayingIndex) ? 'favorite' : 'favorite_border' }}
+      </i>
+    </div>
+    <div class="footer-volume">
+      <i class="material-icons">volume_up</i>
+      <input type="range" min="0" max="1" step="0.01" [value]="volume" (input)="onVolumeChange($event)" />
+    </div>
+    <button class="buy-btn">
+      ₹{{ beats[currentPlayingIndex]?.price || '999' }}
+    </button>
+  </div>
+</div>

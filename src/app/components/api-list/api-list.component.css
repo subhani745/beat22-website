@@ -1,0 +1,386 @@
+.beats-container {
+  background-color: #121212;
+  padding: 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
+.beat-card {
+  display: flex;
+  align-items: center;
+  background-color: #1e1e1e;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+  color: #fff;
+  position: relative;
+  transition: all 0.3s ease;
+}
+.beat-card:hover {
+  background-color: #292929; 
+  transform: scale(1.02); 
+  box-shadow: 0 4px 15px rgba(178, 94, 255, 0.2); 
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+.play-icon:hover {
+  background: #b25eff;
+  transform: scale(1.1);
+  transition: 0.2s ease;
+}
+.play-icon {
+  background: white;
+  color: black;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16px;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+.play-icon.active {
+  background: #4a90e2; 
+  color: white;
+}
+.cover-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 6px;
+  object-fit: cover;
+  margin-right: 16px;
+  flex-shrink: 0;
+}
+.beat-info {
+  flex-grow: 1;
+}
+.beat-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+.producer {
+  margin: 4px 0;
+  font-size: 13px;
+  color: #bbb;
+}
+.meta {
+  font-size: 13px;
+  color: #ccc;
+}
+.mood-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: 20px;
+}
+.tag {
+  background-color: #333;
+  color: #ddd;
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 12px;
+}
+.price-section {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.price-button {
+  background-color: #a020f0;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 14px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.icon {
+  font-size: 16px;
+  vertical-align: middle;
+  margin-right: 4px;
+  color: #a0a0a0;
+}
+.footer-player {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #000;
+  z-index: 1000;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.7);
+  padding-top: 6px;
+}
+.seek-bar {
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  background: #333;
+  outline: none;
+  cursor: pointer;
+  margin-bottom: 6px;
+}
+.seek-bar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  background: #b25eff;
+  cursor: pointer;
+  border: none;
+}
+.seek-bar::-moz-range-thumb {
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  background: #b25eff;
+  border: none;
+}
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 6px 20px;
+  color: #fff;
+  overflow-x: auto;
+}
+.footer-skip-btn,
+.footer-play-btn {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 26px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer-play-btn {
+  font-size: 30px;
+  background: #fff;
+  color: #000;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+}
+.footer-timer {
+  font-size: 14px;
+  color: #bbb;
+  min-width: 65px;
+}
+.footer-info {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  gap: 10px;
+  min-width: 0;
+}
+.footer-img {
+  width: 45px;
+  height: 45px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+.footer-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.footer-producer {
+  margin: 0;
+  font-size: 13px;
+  color: #aaa;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.bpm, .plays {
+  font-weight: normal;
+  font-size: 12px;
+  color: #aaa;
+}
+.footer-controls {
+  display: flex;
+  gap: 12px;
+}
+.control-icon {
+  cursor: pointer;
+  font-size: 22px;
+  color: #fff;
+}
+.control-icon:hover {
+  color: #b25eff;
+}
+.footer-volume {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.footer-volume input[type="range"] {
+  width: 90px;
+  accent-color: #b25eff;
+}
+.buy-btn {
+  background: #b25eff;
+  border: none;
+  padding: 8px 14px;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.buy-btn:hover {
+  background: #a04de2;
+}
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+.loader > span {
+  background-color: #8a2be2;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  margin: 0 8px;
+  animation: bounce 1.2s infinite ease-in-out;
+}
+.loader > span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.loader > span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-24px);
+  }
+}
+@media (max-width: 1024px) and (min-width: 601px) {
+  .beat-card {
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 12px;
+  }
+
+  .cover-img {
+    width: 50px;
+    height: 50px;
+    margin-right: 12px;
+  }
+
+  .beat-title {
+    font-size: 15px;
+  }
+
+  .price-button {
+    padding: 6px 12px;
+  }
+
+  .footer-content {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .footer-info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-title,
+  .footer-producer {
+    max-width: 100%;
+  }
+
+  .footer-volume input[type="range"] {
+    width: 80px;
+  }
+}
+@media (max-width: 600px) {
+  .beat-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px;
+  }
+
+  .play-icon {
+    margin-bottom: 12px;
+    margin-right: 0;
+  }
+
+  .cover-img {
+    margin-bottom: 12px;
+    margin-right: 0;
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+  }
+
+  .mood-tags {
+    margin: 10px 0 0 0;
+    justify-content: flex-start;
+  }
+
+  .price-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px;
+  }
+
+  .footer-info {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .footer-img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .footer-title {
+    font-size: 14px;
+  }
+
+  .footer-play-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+  }
+
+  .footer-volume {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .footer-volume input[type="range"] {
+    width: 100%;
+  }
+
+  .buy-btn {
+    width: 100%;
+    text-align: center;
+  }
+}

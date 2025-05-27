@@ -1,6 +1,5 @@
 <div class="beats-container">
   <div class="beat-card" *ngFor="let beat of beats; let i = index">
-
     <div class="play-icon" [class.active]="currentPlayingIndex === i && isPlaying" (click)="togglePlay(i)">
       <i class="material-icons">
         {{ currentPlayingIndex === i && isPlaying ? 'pause' : 'play_arrow' }}
@@ -31,9 +30,6 @@
   <span></span>
   <span></span>
 </div>
-
-
-
 
 <div class="footer-player" *ngIf="currentPlayingIndex !== null">
   <input type="range" class="seek-bar" min="0" [max]="duration" [value]="currentTime" (input)="onSeek($event)" />

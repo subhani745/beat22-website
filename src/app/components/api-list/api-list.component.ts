@@ -45,9 +45,6 @@ export class ApiListComponent implements OnInit {
     console.error("Audio play error:", error);
   });
 }
-
-
-
   isPlaying: boolean = false;
   currentPlayingIndex: number | null = null;
 
@@ -104,23 +101,16 @@ playNext() {
   }
   ngAfterViewInit(): void {
   const audio = this.audioPlayerRef.nativeElement;
-
   audio.addEventListener('loadedmetadata', () => {
     this.duration = audio.duration;
   });
-
   audio.addEventListener('timeupdate', () => {
     this.currentTime = audio.currentTime;
   });
-
   audio.addEventListener('ended', () => {
     this.onEnded();
   });
 }
-
-
- 
-
   onEnded(): void {
     this.isPlaying = false;
     this.currentPlayingIndex = null;
